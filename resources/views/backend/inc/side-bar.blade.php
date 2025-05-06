@@ -17,7 +17,7 @@
         <li class="{{ areActiveRoutes(['paper.index','paper.create','paper.edit']) }}">
             <a href="{{ route('paper.index') }}">
                 <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                <span class="pcoded-mtext">{{ __('Papers') }}</span>
+                <span class="pcoded-mtext">{{ __('Papers (Formators)') }}</span>
             </a>
         </li>
     @endif
@@ -39,11 +39,22 @@
             <li class="{{ areActiveRoutes(['submitpaper.index','submitpaper.create','submitpaper.edit']) }}">
                 <a href="{{ route('submitpaper.index') }}">
                     <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                    <span class="pcoded-mtext">{{ __('Submit Paper') }}</span>
+                    <span class="pcoded-mtext">{{ __('Submit Paper (Author)') }}</span>
                 </a>
             </li>
         @endif
     @endauth
+
+    @auth
+    @if(in_array(auth()->user()->user_type, ['admin', 'c.a.']))
+        <li class="{{ areActiveRoutes(['papersummary.index','papersummary.create','papersummary.edit']) }}">
+            <a href="{{ route('papersummary.index') }}">
+                <span class="pcoded-micon"><i class="feather icon-file"></i></span>
+                <span class="pcoded-mtext">{{ __('Paper Summary (C.A.)') }}</span>
+            </a>
+        </li>
+    @endif
+@endauth
 
 
 

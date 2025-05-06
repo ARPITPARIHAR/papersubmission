@@ -42,7 +42,8 @@ class SubmitPaperController extends Controller
         $contact->paper_id = $request->paper_id;
         $contact->paper_title = $request->paper_title;
         $contact->journal_name = $request->journal_name;
-
+        $contact->amount = $request->amount;
+        $contact->currency = $request->currency;
 
           if ($request->hasFile('manuscript')) {
         $fileName =  $request->file('manuscript')->getClientOriginalName();
@@ -135,7 +136,8 @@ class SubmitPaperController extends Controller
     $paper->address       = $request->address;
     $paper->paper_id      = $request->paper_id;
     $paper->paper_title   = $request->paper_title;
-    $paper->journal_name  = $request->journal_name;
+    $paper->currency  = $request->currency;
+    $paper->amount  = $request->amount;
 
 
 

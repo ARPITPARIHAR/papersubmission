@@ -21,7 +21,7 @@ class LoginController extends Controller
     }
     public function registerd(Request $request) {
 
-          
+
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -45,7 +45,7 @@ class LoginController extends Controller
 
            if (auth()->user()->user_type=='customer') {
             return redirect()->route('customer.dashboard');
-           }elseif (in_array(auth()->user()->user_type,['admin','staff','author'])) {
+           }elseif (in_array(auth()->user()->user_type,['admin','staff','author', 'c.a.'])) {
              return redirect()->route('dashboard');
            }else{
             return back()->with('error',"your login credentials don't match an account in our system");

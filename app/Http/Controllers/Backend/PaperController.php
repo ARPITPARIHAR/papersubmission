@@ -33,6 +33,8 @@ class PaperController extends Controller
         $contact->paper_id = $request->paper_id;
         $contact->paper_title = $request->paper_title;
         $contact->journal_name = $request->journal_name;
+        $contact->amount = $request->amount;
+         $contact->currency = $request->currency;
 
 
           if ($request->hasFile('manuscript')) {

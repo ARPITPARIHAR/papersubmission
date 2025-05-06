@@ -14,7 +14,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && in_array(auth()->user()->user_type, ['admin', 'staff', 'author'])) {
+        if (auth()->check() && in_array(auth()->user()->user_type, ['admin', 'staff', 'author', 'c.a.'])) {
             return $next($request);
         }
         else{

@@ -166,10 +166,27 @@ body{
         </div>
       </div>
 
-      <div class="form-group">
-        <label> Journal Name</label>
-        <input type="text" name="journal_name" required>
-      </div>
+      <div class="form-row">
+        <div class="form-group ">
+            <label>Journal Name</label>
+            <input type="text" name="journal_name" required>
+        </div>
+
+        <div class="form-group ">
+            <label>Amount</label>
+            <div class="input-group">
+                <input type="text" name="amount"  placeholder="Enter Amount" required>
+                <select name="currency"  required>
+                    <option value="USD">USD (Dollar)</option>
+                    <option value="INR">INR (Indian Rupee)</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <!-- File Uploads -->

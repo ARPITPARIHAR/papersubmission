@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\BranchController;
 use App\Http\Controllers\Backend\UpcomingController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\SubmitPaperController;
+use App\Http\Controllers\Backend\SummaryController;
 use App\Http\Controllers\Backend\PaperController;
 
 // Dashboard routes
@@ -55,7 +56,18 @@ Route::controller(SubmitPaperController::class)->group(function () {
 });
 
 
+Route::controller(SummaryController::class)->group(function () {
+    Route::group(['prefix' => 'papersummary', 'as' => 'papersummary.'], function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('{id}/edit', 'edit')->name('edit');
+        Route::post('{id}/edit', 'update')->name('update');
+        Route::get('{id}/delete', 'destroy')->name('delete');
+    });
+});
 
+Route::get('/papers/export', [SummaryController::class, 'exportToCSV'])->name('papers.export');
 
 // Teammember routes
 

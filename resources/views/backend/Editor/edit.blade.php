@@ -71,7 +71,8 @@
                                 <option value="">Select User Type</option>
                                 <option value="admin" {{ old('user_type', $banner->user_type) == 'admin' ? 'selected' : '' }}>Admin</option>
                                 <option value="staff" {{ old('user_type', $banner->user_type) == 'staff' ? 'selected' : '' }}>Staff</option>
-                                <option value="author" {{ old('user_type', $banner->user_type) == 'staff' ? 'selected' : '' }}>Author</option>
+                                <option value="author" {{ old('user_type', $banner->user_type) == 'author' ? 'selected' : '' }}>Author</option>
+                                <option value="c.a." {{ old('user_type', $banner->user_type) == 'c.a.' ? 'selected' : '' }}>C.A.</option>
                             </select>
                             @error('user_type')
                                 <p class="text-danger">{{ $message }}</p>

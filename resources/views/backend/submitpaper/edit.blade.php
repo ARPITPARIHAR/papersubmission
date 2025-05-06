@@ -97,6 +97,22 @@
                             <input type="text" name="journal_name" class="form-control" value="{{ old('journal_name', $paper->journal_name) }}">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Amount</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="amount" class="form-control"    value="{{ old('amount_display', $paper->amount . ' ' . $paper->currency) }}"  placeholder="Enter Amount">
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="currency" class="form-control" required>
+                                <option value="USD" {{ old('currency', $paper->currency) == 'USD' ? 'selected' : '' }}>USD (Dollar)</option>
+                                <option value="INR" {{ old('currency', $paper->currency) == 'INR' ? 'selected' : '' }}>INR (Indian Rupee)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {{-- Optional Preview Line --}}
+
+
 
                     {{-- Final Manuscript --}}
                     <div class="form-group row">

@@ -70,6 +70,7 @@ class EditorController extends Controller
         'usertype' => 'nullable|string',
 
         ]);
+      
 
         $banner = User::findOrFail(decrypt($id));
 
