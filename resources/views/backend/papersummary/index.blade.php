@@ -31,12 +31,13 @@
 
                                 <th>{{ __('Paper Title') }}</th>
                                 <th>{{ __('Journal Name') }}</th>
+                                <th>{{ __('Paper Id') }}</th>
 
                                 <th>{{ __('Payment Receipt') }}</th>
                                 <th>{{ __('Amount') }}</th>
 
                                 <th>{{ __('Updated At') }}</th>
-                                <th>{{ __('Actions') }}</th>
+                                {{-- <th>{{ __('Actions') }}</th> --}}
 
                             </tr>
                         </thead>
@@ -50,7 +51,7 @@
                                 <td>{{ $paper->paper_title}}</td>
                                 <td>{{ $paper->journal_name }}</td>
 
-
+                                <td>{{ $paper->paper_id}}</td>
                                 <td>
                                     @if($paper->payment_img)
                                         <a href="{{ ($paper->payment_img) }}" target="_blank">
@@ -71,7 +72,7 @@
                                 <td>{{ date('d-m-Y h:iA', strtotime($paper->updated_at)) }}</td>
                                 <td>
                                     {{-- <a href="{{ route('submitpaper.edit', encrypt($paper->id)) }}" class="btn btn-sm btn-primary">{{ __('Edit') }}</a> --}}
-                                    <a href="{{ route('submitpaper.delete', encrypt($paper->id)) }}" class="btn btn-sm btn-danger">{{ __('Delete') }}</a>
+                                    {{-- <a href="{{ route('submitpaper.delete', encrypt($paper->id)) }}" class="btn btn-sm btn-danger">{{ __('Delete') }}</a> --}}
                                 </td>
                             </tr>
                             @endforeach
@@ -84,11 +85,11 @@
 
                                 <th>{{ __('Paper Title') }}</th>
                                 <th>{{ __('Journal Name') }}</th>
-
+                                <th>{{ __('Paper Id') }}</th>
                                 <th>{{ __('Payment Receipt') }}</th>
                                 <th>{{ __('Amount') }}</th>
                                 <th>{{ __('Updated At') }}</th>
-                                <th>{{ __('Actions') }}</th>
+                                {{-- <th>{{ __('Actions') }}</th> --}}
 
                             </tr>
                         </tfoot>

@@ -46,7 +46,7 @@
                                 <th>{{ __('Publishing Status') }}</th>
                                 <th>{{ __('Published By') }}</th>
                                 <th>{{ __('Updated At') }}</th>
-                                <th>{{ __('Actions') }}</th>
+                                {{-- <th>{{ __('Actions') }}</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -115,9 +115,9 @@
                                     <td>{{ $paper->published_by ?? 'N/A' }}</td>
 
                                     <td>{{ date('d-m-Y h:iA', strtotime($paper->updated_at)) }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('paper.delete', encrypt($paper->id)) }}" class="btn btn-sm btn-danger">{{ __('Delete') }}</a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
@@ -140,7 +140,7 @@
                                 <th>{{ __('Publishing Status') }}</th>
                                 <th>{{ __('Published By') }}</th>
                                 <th>{{ __('Updated At') }}</th>
-                                <th>{{ __('Actions') }}</th>
+                                {{-- <th>{{ __('Actions') }}</th> --}}
                             </tr>
                         </tfoot>
                     </table>
