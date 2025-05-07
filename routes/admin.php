@@ -67,7 +67,8 @@ Route::controller(SummaryController::class)->group(function () {
     });
 });
 
-Route::get('/papers/export', [SummaryController::class, 'exportToCSV'])->name('papers.export');
+Route::post('/papers/export-selected', [SummaryController::class, 'exportSelected'])->name('papers.export.selected');
+
 
 // Teammember routes
 

@@ -18,12 +18,15 @@
             <div class="card">
                 <div class="card-header row">
                     <div class="col-sm-12 text-right">
-                        <a href="{{ route('papers.export') }}" class="btn btn-success">
-                            {{ __('Export All to CSV') }}
-                        </a>
-                    </div>
-                </div>
-
+                        <form method="POST" action="{{ route('papers.export.selected') }}">
+                            @csrf
+                            <div class="card-header row">
+                                <div class="col-sm-12 text-right">
+                                    <button type="submit" class="btn btn-success">
+                                        {{ __('Export Selected to CSV') }}
+                                    </button>
+                                </div>
+                            </div>
 
             <div class="card-header row">
                 {{-- <div class="col-sm-2">
@@ -36,6 +39,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th style="text-align: center;">
+                                    <input type="checkbox" id="select-all">
+                                </th>
+
                                 <th>{{ __('Author Name') }}</th>
                                 <th>{{ __('Country') }}</th>
 
@@ -55,6 +62,9 @@
                             @foreach ($papers as $key=>$paper)
                             <tr>
                                 <td>{{ ($key+1) + ($papers->currentPage() - 1)*$papers->perPage() }}</td>
+                                <td>
+                                    <input type="checkbox" name="paper_ids[]" value="{{ $paper->id }}">
+                                </td>
                                 <td>{{ $paper->author_name }}</td>
                                 <td>{{ $paper->country}}</td>
 
@@ -125,6 +135,14 @@
 
 @endsection
 @section('scripts')
+@section('scripts')
+<script>
+    document.getElementById('select-all').onclick = function () {
+        let checkboxes = document.querySelectorAll('input[name="paper_ids[]"]');
+        checkboxes.forEach(cb => cb.checked = this.checked);
+    };
+</script>
+@endsection
 
 @endsection
 @section('styles')
