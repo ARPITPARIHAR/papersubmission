@@ -15,6 +15,16 @@
     <div class="col-sm-12">
         <!-- Zero config.table start -->
         <div class="card">
+            <div class="card">
+                <div class="card-header row">
+                    <div class="col-sm-12 text-right">
+                        <a href="{{ route('papers.export') }}" class="btn btn-success">
+                            {{ __('Export All to CSV') }}
+                        </a>
+                    </div>
+                </div>
+
+
             <div class="card-header row">
                 {{-- <div class="col-sm-2">
                     <a href="{{ route('submitpaper.create') }}" class="btn btn-sm btn-primary">{{ __('Submit Ppaer') }}</a>
@@ -65,9 +75,8 @@
 
 
                                 <td>{{ $paper->amount }} {{ $paper->currency }}</td>
-                                <a href="{{ route('papers.export') }}" class="btn btn-sm btn-success">
-                                    {{ __('Export to CSV') }}
-                                </a>
+
+
 
                                 <td>{{ date('d-m-Y h:iA', strtotime($paper->updated_at)) }}</td>
                                 <td>
@@ -109,6 +118,8 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 @section('modal')
 
